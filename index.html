@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
 
-  <title>My Resume</title>
-
+  <title>Heather Nuffer Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/975fc712d3.js"></script>
   <link rel="stylesheet" href="css/index.css">
 
   <!--[if lt IE 9]>
@@ -14,6 +16,106 @@
 </head>
 
 <body>
-  <h1>My Resume</h1>
+  <header>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#About">About</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="hero">
+      <div class="img-container">
+        <img src="" alt="" />
+      </div>
+      <h1>Heather Nuffer</h1>
+      <h2>Web Developer</h2>
+      <p>I love creating websites and applications. Contact me if you'd like me 
+        to contribute to your next great idea.</p>
+      <a href="#">Contact Me</a>
+    </div>
+
+  </header>
+
+  <section id="About">
+    <h2>Pay Attention to the {Little} Details</h2>
+    <p>I am a web developer and microbiologist. I believe that web 
+      development is a highly-fulfilling way to fuse together a background in 
+      science and the arts. I enjoy working with others in creating effective,
+      quality products. 
+    </p>
+  </section>
+
+  <section id="Skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>HTML5, CSS3, JavaScript</li>
+      <li>React, Node.js, Express</li>
+      <li>git/GitHub</li>
+      <li>Python, Django, R</li>
+    </ul>
+  </section>
+
+  <section id="Work">
+    <a href="https://codepen.io/ethyl2/full/ejvway">See My Portfolio</a>
+    <h2>Work Experience</h2>
+    <div class="container">
+        <div class="box">
+          <h3>Foothill Elementary PTA – Volunteer Music Program Coordinator (2014-2017):</h3>
+          <p>Provided support and leadership for 80+ students in the choir, orchestra and ballroom groups.
+            Promoted teamwork with the principal, volunteers, PTA leadership and school staff.
+            Kept accurate records and handled details for registration, weekly rehearsals and 5+ performances/year.</p>
+        </div>
+        <div class="box">
+          <h3>Richards Laboratories, Inc. – Medical Microbiology Lab Assistant (2000-2005):</div>
+          <p>Set up and analyzed cell cultures and tests.
+          Kept records up-to-date of results and patient information.
+          Accurately followed procedures to perform QC and to make growth media 
+          and other supplies.</p>
+        </div>
+      </div>
+  </section>
+
+  <section id="Education">
+    <h2>Education</h2>
+    <div class="container">
+      <div class="box">
+        <h3>Lambda School, Full-Stack Web Development</h3>
+        <p>September 2019 - June 2019, anticipated</p>
+      </div>
+      <div class="box">
+        <h3>Front-End Web Developer Nanodegree from Udacity</h3>
+        <p>Completed Feb 2017</p>
+      </div>
+      <div class="box">
+        <h3>Brigham Young University</h3>
+        <p>Microbiology -- Bachelor of Science</p>
+        <p>GPA 3.96, Summa Cum Laude</p>
+      </div>
+    </div>
+
+  </section>
+  <footer>
+    <section id="Contact">
+        <h2>Get In Touch</h2>
+ 
+        <form method="POST" action="https://formspree.io/YOUREMAILHERE">
+          <label for="name">Your Name</label>
+          <input type="name" name="name">
+          <label for="email">Your Email</label>
+          <input type="email" name="email">
+          <label for="message">Your Message</label>
+          <textarea name="message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-twitter"></i>
+    </section>
+  </footer>
+
+  
 </body>
 </html>
