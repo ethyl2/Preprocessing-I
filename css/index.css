@@ -134,3 +134,21 @@ html,
 body {
   height: 100%;
 }
+html {
+  background-color: ivory;
+  font-size: 62.5%;
+}
+header {
+  background-color: #A7DEFC;
+}
+header .img-container {
+  width: 20%;
+}
+header .img-container img {
+  width: 100%;
+}
+header nav {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: green;
+}
