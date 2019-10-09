@@ -156,7 +156,7 @@ html, body {
 // Escaping
 @mobile: ~"(max-width: 500px)";
 
-//Main Styles
+//Elemental Styles
 html {
 	background-color:@mainColor;
 	font-size: 62.5%;
@@ -211,7 +211,6 @@ header {
 		background-color: @accentColor;
 		border-radius: 5px;
 		.myFlex(@direction: column; @towrap: nowrap; @align: flex-start);
-		height: 100vh;
 		padding: 4rem 5rem;
 		box-shadow: @subtleShadow;
 		@media @mobile {
@@ -222,9 +221,7 @@ header {
 		h1 {
 			padding-top: 2rem;
 			@media @mobile {
-				h1 {
-				line-height: 1.15em;
-				}
+				line-height: 1em;
 			} //Close media query for h1
 		}
 		h2 {
