@@ -253,6 +253,11 @@ header .hero {
   padding: 4rem 5rem;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 500px) {
+  header .hero .img-container {
+    display: none;
+  }
+}
 header .hero h1 {
   padding-top: 2rem;
 }
@@ -291,10 +296,22 @@ main {
   align-items: center;
   margin: 4rem 0;
 }
+@media (max-width: 500px) {
+  main {
+    flex-flow: column no-wrap;
+  }
+}
 #About,
 #Skills {
   text-align: center;
   width: 48%;
+}
+@media (max-width: 500px) {
+  #About,
+  #Skills {
+    width: 100%;
+    padding-bottom: 3em;
+  }
 }
 #About h2,
 #Skills h2 {
@@ -345,6 +362,19 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+#About .img-container {
+  display: none;
+}
+@media (max-width: 500px) {
+  #About .img-container {
+    display: block;
+    width: 90%;
+    padding-bottom: 2em;
+  }
+  #About .img-container img {
+    max-width: 100%;
+  }
+}
 #Work {
   margin: 2rem 0;
   padding: 3rem 2rem;
@@ -357,20 +387,33 @@ main {
   align-items: center;
   margin-top: 3rem;
 }
+@media (max-width: 500px) {
+  #Work .container {
+    flex-flow: column nowrap;
+    text-align: center;
+  }
+}
 #Work .container .outer-box {
   width: 70%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
 }
+@media (max-width: 500px) {
+  #Work .container .outer-box {
+    width: 90%;
+  }
+}
 #Work .container .outer-box .box {
   margin: 1rem 0;
 }
 #Work .container .img-container {
   width: 25%;
+  max-width: 25%;
 }
 #Work .container .img-container img {
   width: 100%;
+  max-width: 100%;
 }
 #Education {
   margin-bottom: 2rem;
@@ -405,6 +448,11 @@ main {
 #Education .container .box p {
   padding: 0.5rem 0;
 }
+@media (max-width: 500px) {
+  #Education .container .box {
+    width: 100%;
+  }
+}
 footer {
   margin-top: 3rem;
   padding-top: 3rem;
@@ -418,12 +466,23 @@ footer #Contact {
   justify-content: space-around;
   align-items: center;
 }
+@media (max-width: 500px) {
+  footer #Contact {
+    flex-flow: column nowrap;
+  }
+}
 footer #Contact h2 {
   padding-bottom: 2rem;
 }
 footer #Contact .contact-box {
   width: 30%;
   text-align: center;
+}
+@media (max-width: 500px) {
+  footer #Contact .contact-box {
+    width: 100%;
+    padding-bottom: 3em;
+  }
 }
 footer #Contact .contact-box .socialIcons {
   padding-top: 2rem;
@@ -435,6 +494,11 @@ footer #Contact .form-box {
   padding: 2rem;
   width: 48%;
   background-color: ivory;
+}
+@media (max-width: 500px) {
+  footer #Contact .form-box {
+    width: 100%;
+  }
 }
 footer #Contact .form-box input,
 footer #Contact .form-box textarea {
