@@ -145,6 +145,14 @@ html, body {
 	}
 }
 
+// Parametric Mixin
+.myFlex(@direction: row; @towrap: wrap; @justify: space-evenly; @align: center) {
+	display: flex;
+	flex-flow: @direction @towrap;
+	justify-content: @justify;
+	align-items: @align;
+}
+
 // Escaping
 @mobile: ~"(max-width: 500px)";
 
@@ -189,9 +197,7 @@ a {
 header {
 	
 	nav {
-		display: flex;
-		flex-flow: row nowrap;
-		justify-content: flex-end;
+		.myFlex(@towrap: nowrap; @justify: flex-end);
 		padding: 2rem 0;
 		a {
 			.perfectLink();
@@ -204,10 +210,8 @@ header {
 	.hero {
 		background-color: @accentColor;
 		border-radius: 5px;
-		display: flex;
-		flex-flow: column nowrap;
+		.myFlex(@direction: column; @towrap: nowrap; @align: flex-start);
 		height: 100vh;
-		justify-content: space-evenly;
 		padding: 4rem 5rem;
 		box-shadow: @subtleShadow;
 		@media @mobile {
@@ -247,10 +251,7 @@ header {
 //Main Section Styles
 
 main {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-items: center;
+	.myFlex(@justify: space-around);
 	margin: 4rem 0;
 	@media @mobile {
 		flex-flow: column no-wrap;
@@ -280,10 +281,7 @@ main {
 }
 
 #About {
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-between;
-	align-items: center;
+	.myFlex(@direction: column; @justify: space-between);
 	.img-container {
 		display: none;
 		@media @mobile {
@@ -304,10 +302,7 @@ main {
 	padding: 3rem 2rem;
 	border-top: 1px solid black;
 	.container {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-around;
-		align-items: center;
+		.myFlex(@justify: space-around);
 		margin-top: 3rem;
 		@media @mobile {
 			flex-flow: column nowrap;
@@ -315,9 +310,7 @@ main {
 		}
 		.outer-box {
 			width: 70%;
-			display: flex;
-			flex-flow: column nowrap;
-			justify-content: space-around;
+			.myFlex(@direction: column; @justify: space-around);
 			@media @mobile {
 				width: 90%;
 			}
@@ -346,9 +339,7 @@ main {
 	}
 	.container {
 		width: 100%;
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-evenly;
+		.myFlex(@align: stretch);
 		.box {
 			.perfectBox();
 			width: 30%;
@@ -368,10 +359,7 @@ footer {
 	box-shadow: @subtleShadow;
 	border-radius: 5px;
 	#Contact {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-around;
-		align-items: center;
+		.myFlex(@justify: space-around);
 		@media @mobile {
 			flex-flow: column nowrap;
 		}
@@ -387,9 +375,7 @@ footer {
 			}
 			.socialIcons {
 				padding-top: 2rem;
-				display: flex;
-				flex-flow: row nowrap;
-				justify-content: space-evenly;
+				.myFlex(@towrap: nowrap);
 			}
 		}
 		.form-box {
