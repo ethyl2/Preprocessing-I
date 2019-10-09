@@ -228,6 +228,11 @@ header .hero a {
 header .hero a:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 500px) {
+  header .hero a {
+    width: 60%;
+  }
+}
 header .img-container {
   width: 25%;
 }
