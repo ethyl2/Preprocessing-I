@@ -57,3 +57,349 @@ html, body {
     height: 100%;
 }
 
+// My Styles
+
+//Variables:
+
+//Colors:
+@mainColor: ivory;
+@accentColor: #A7DEFC;
+@accentColorLighten: lighten(@accentColor, 12%);
+@neutralColor: #D5C897;
+@shadowColor: rgba(0,0,0,0.2);
+@medGray: #596362;
+@sage: #718C52;
+
+//Accents:
+@subtleShadow: 0px 3px 15px @shadowColor;
+
+//Fonts:
+@fontStackHeading: 'Imprima', sans-serif;
+@fontStackMain: 'Open Sans', sans-serif;
+
+
+//Mixins:
+
+.perfectUl() {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	li {
+		text-decoration: none;
+		padding: 1rem;
+		border: 1px solid @medGray;
+		width: 100%;
+		margin: 0.25rem auto;
+		border-radius: 2px;
+		text-align: center;
+		font-size: 1.25em;
+		width: 80%;
+	}
+}
+
+.perfectBox() {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+	text-align: center;
+	padding: 1.5rem;
+	background-color: @neutralColor;
+	margin: 1rem;
+	border-radius: 3px;
+	box-shadow: @subtleShadow;
+	h3 {
+		font-size: 2rem;
+		padding: 1rem 0;
+		font-weight: bold;
+	}
+	p {
+		padding: 0.5rem 0;
+	}
+}
+
+.perfectLink() {
+	text-decoration: none;
+	color: @medGray;
+	padding: 0 1.6rem;
+	font-size: 1.8rem;
+	border-radius: 2px;
+	&:hover {
+		background-color: @shadowColor;
+	}
+}
+
+.perfectButton() {
+	text-decoration: none;
+	background-color: @medGray;
+	color: white;
+	padding: 1rem 1.5rem;
+	margin: 1.5rem 0;
+	width: 30%;
+	text-align: center;
+	font-size: 1.5rem;
+	border-radius: 3px;
+	&:hover {
+		background-color: @shadowColor;
+	}
+}
+
+// Parametric Mixin
+.myFlex(@direction: row; @towrap: wrap; @justify: space-evenly; @align: center) {
+	display: flex;
+	flex-flow: @direction @towrap;
+	justify-content: @justify;
+	align-items: @align;
+}
+
+// Escaping
+@mobile: ~"(max-width: 500px)";
+
+//Elemental Styles
+html {
+	background-color:@mainColor;
+	font-size: 62.5%;
+}
+
+.big-container {
+	width: 85%;
+	margin: 0 auto;
+	font-family: @fontStackMain;
+	line-height: 3rem;
+}
+
+h1 {
+	font-family: @fontStackHeading;
+	font-size: 5rem;
+}
+
+h2 {
+	font-family: @fontStackHeading;
+	font-size: 3rem;
+	text-align: center;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+p {
+	font-size: 1.6rem;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+//Header Styles
+header {
+	
+	nav {
+		.myFlex(@towrap: nowrap; @justify: flex-end);
+		padding: 2rem 0;
+		a {
+			.perfectLink();
+		}
+		.active {
+			font-weight: bold;
+		}	
+	}
+
+	.hero {
+		background-color: @accentColor;
+		border-radius: 5px;
+		.myFlex(@direction: column; @towrap: nowrap; @align: flex-start);
+		padding: 4rem 5rem;
+		box-shadow: @subtleShadow;
+		@media @mobile {
+			.img-container {
+				display: none;
+			}
+		}
+		h1 {
+			padding-top: 2rem;
+			@media @mobile {
+				line-height: 1em;
+			} //Close media query for h1
+		}
+		h2 {
+			border-bottom: 1px solid @medGray;
+			padding: 2rem 0;
+			text-align: left;
+		}
+		p {
+			padding-top: 2.25rem;
+		}
+		a {
+			.perfectButton();
+			@media @mobile {
+				width: 60%;
+			}
+		}
+	}
+
+	.img-container {
+		width: 25%;
+		img {
+			width: 100%;
+		}
+	}
+}
+
+//Main Section Styles
+
+main {
+	.myFlex(@justify: space-around);
+	margin: 4rem 0;
+	@media @mobile {
+		flex-flow: column no-wrap;
+	}
+}
+
+	//#About Section & #Skills Section
+	#About, #Skills {
+		text-align: center;
+		width: 48%;
+		@media @mobile {
+			width: 100%;
+			padding-bottom: 3em;
+		}
+		h2 {
+			padding-bottom: 1rem;
+		}
+		p {
+			padding-bottom: 1.25rem;
+		}
+		ul {
+			.perfectUl();
+		}
+		a {
+			.perfectButton();
+		}
+}
+
+#About {
+	.myFlex(@direction: column; @justify: space-between);
+	.img-container {
+		display: none;
+		@media @mobile {
+			display: block;
+			width: 90%;
+			padding-bottom: 2em;
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+// #Work Section
+
+#Work {
+	margin: 2rem 0;
+	padding: 3rem 2rem;
+	border-top: 1px solid black;
+	.container {
+		.myFlex(@justify: space-around);
+		margin-top: 3rem;
+		@media @mobile {
+			flex-flow: column nowrap;
+			text-align: center;
+		}
+		.outer-box {
+			width: 70%;
+			.myFlex(@direction: column; @justify: space-around);
+			@media @mobile {
+				width: 90%;
+			}
+			.box {
+				margin: 1rem 0;
+			}
+		}
+		.img-container {
+			width: 25%;
+			max-width: 25%;
+			img {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+
+//#Education Section
+
+#Education {
+	margin-bottom: 2rem;
+	h2 {
+		margin-bottom: 1.5rem;
+	}
+	.container {
+		width: 100%;
+		.myFlex(@align: stretch);
+		.box {
+			.perfectBox();
+			width: 30%;
+			@media @mobile {
+				width: 100%;
+			}
+		}
+	}
+}
+
+// Footer Styles
+
+footer {
+	margin-top: 3rem;
+	padding-top: 3rem;
+	background: @accentColor;
+	box-shadow: @subtleShadow;
+	border-radius: 5px;
+	#Contact {
+		.myFlex(@justify: space-around);
+		@media @mobile {
+			flex-flow: column nowrap;
+		}
+		h2 {
+			padding-bottom: 2rem;
+		}
+		.contact-box {
+			width: 30%;
+			text-align: center;
+			@media @mobile {
+				width: 100%;
+				padding-bottom: 3em;
+			}
+			.socialIcons {
+				padding-top: 2rem;
+				.myFlex(@towrap: nowrap);
+			}
+		}
+		.form-box {
+			padding: 2rem;
+			width: 48%;
+			background-color: @mainColor;
+			@media @mobile {
+				width: 100%;
+			}
+			input, textarea {
+				background-color: @accentColorLighten;
+				width: 100%;
+				border: none;
+				height: 3rem;
+			}
+			button {
+				.perfectButton();
+			}
+		} //This closes the .form-box
+	} //This closes the #Contact
+	.copyright {
+		margin-top: 3rem;
+		text-align: center;
+	}
+} //This closes the footer.
+
+
